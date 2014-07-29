@@ -121,12 +121,17 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 USE_DEVICE_SPECIFIC_CAMERA:= true
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
+AUDIO_FEATURE_DISABLED_DS1_DOLBY_DDP := true
 
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 HAVE_ADRENO_SOURCE:= false
 
 -include vendor/lge/mako/BoardConfigVendor.mk
+
+# Define kernel config for inline building
+TARGET_KERNEL_CONFIG := mako_defconfig
+TARGET_KERNEL_SOURCE := kernel/lge/mako
 
 #TWRP config
 DEVICE_RESOLUTION := 720x1280
@@ -144,3 +149,9 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+
+# Toolchain
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-linux-androideabi-4.7
+TARGET_KERNEL_CUSTOM_TOOLCHAIN_PREFIX := arm-linux-androideabi-
+TARGET_GCC_VERSION_AND := 4.7
+TARGET_GCC_VERSION_ARM := 4.7

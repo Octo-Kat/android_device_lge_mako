@@ -57,6 +57,10 @@ on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
+    # run sysinit
+    start sysinit
+
+
 on boot
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -420,3 +424,7 @@ service diag_mdlog /system/bin/diag_mdlog -s 100
 
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
+
+# sysinit (system/etc/init.d)
+ service sysinit /system/bin/sysinit
+     oneshot
