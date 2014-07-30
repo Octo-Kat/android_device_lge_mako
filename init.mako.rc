@@ -240,6 +240,10 @@ on post-fs-data
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
 
+    # Torch
+    chown system camera /sys/class/leds/led:flash_torch/brightness
+    chmod 0660 /sys/class/leds/led:flash_torch/brightness
+
 on charger
     # Enable Power modes and set the CPU Freq Sampling rates
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1

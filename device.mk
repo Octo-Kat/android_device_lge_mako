@@ -164,6 +164,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	e2fsck
 
+# Enable Torch
+PRODUCT_PACKAGES += Torch
+
 PRODUCT_PACKAGES += \
 	libgenlock \
 	liboverlay \
